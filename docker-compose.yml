@@ -3,3 +3,8 @@ services:
   dhcp:
     build: ./dhcp
     network_mode: host
+
+  http:
+    build: ./http
+    ports:
+    - 80:80
