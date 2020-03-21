@@ -20,6 +20,7 @@ RUN set -x && \
         cp shim-signed-*/shimx64.efi.signed /srv/tftp/bootx64.efi && \
         rm -rf /var/lib/apt/lists/*
 
+COPY preseed.cfg /srv/tftp/preseed.cfg
 COPY grub.cfg /srv/tftp/grub/grub.cfg
 COPY dnsmasq.conf /etc/dnsmasq.conf
 ADD netboot.tar.gz /srv/tftp/
