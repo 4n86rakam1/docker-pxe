@@ -1,3 +1,5 @@
+![Build docker image](https://github.com/maya2250/docker-pxe/workflows/Build%20docker%20image/badge.svg?branch=master)
+
 # docker-pxe
 ## Spec
 
