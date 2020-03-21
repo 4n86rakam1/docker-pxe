@@ -4,17 +4,19 @@
 ## Spec
 
 - PXE Server: docker-compose on host machine
-  - NOTE: Release ports; 67/udp, 69/udp
+  - NOTE: Release ports; 53/udp, 67/udp, 69/udp
 - PXE Client: Ubuntu 18.04(bionic) server
 - Support UEFI Secure Boot
 
 ## Usage
 
+1. Check whether ports is released
+
+   `sudo lsof -iUDP:53,67,69`
+
 1. Download netboot.tar.gz archive into hdpc directory
 
-   ``` bash
-     curl -sSLo dhcp/netboot.tar.gz http://archive.ubuntu.com/ubuntu/dists/bionic-updates/main/installer-amd64/current/images/netboot/netboot.tar.gz
-   ```
+   `curl -sSLo dhcp/netboot.tar.gz http://archive.ubuntu.com/ubuntu/dists/bionic-updates/main/installer-amd64/current/images/netboot/netboot.tar.gz`
 
 1. `docker-compose up -d`
 
