@@ -1,22 +1,22 @@
 name: Build docker image
 on: push
 jobs:
- build:
-   runs-on: ubuntu-latest
-   steps:
-   - uses: actions/checkout@v2
-   - name: Download netboot archive
-     run: curl -sSLo dhcp/netboot.tar.gz http://archive.ubuntu.com/ubuntu/dists/bionic-updates/main/installer-amd64/current/images/netboot/netboot.tar.gz
-   - name: set none network
-     run: |
-       cat <<EOF > docker-compose.override.yml
-       version: "3"
-       services:
-         dhcp:
-           network_mode: none
-       EOF
-   - run: docker-compose build
-   - run: docker-compose up -d
-   - run: sleep 5
-   - run: docker-compose logs
-   - run: docker-compose exec -T dhcp dnsmasq --test
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Download netboot archive
+      run: curl -sSLo dhcp/netboot.tar.gz http://archive.ubuntu.com/ubuntu/dists/bionic-updates/main/installer-amd64/current/images/netboot/netboot.tar.gz
+    - name: set none network
+      run: |
+        cat <<EOF > docker-compose.override.yml
+        version: "3"
+        services:
+          dhcp:
+            network_mode: none
+        EOF
+    - run: docker-compose build
+    - run: docker-compose up -d
+    - run: sleep 5
+    - run: docker-compose logs
+    - run: docker-compose exec -T dhcp dnsmasq --test
