@@ -16,7 +16,7 @@
 
 1. Download netboot.tar.gz archive into hdpc directory
 
-   `curl -sSLo dhcp/netboot.tar.gz http://archive.ubuntu.com/ubuntu/dists/bionic-updates/main/installer-amd64/current/images/netboot/netboot.tar.gz`
+   `curl -sSLo dhcp/netboot.tar.gz http://archive.ubuntu.com/ubuntu/dists/focal-updates/main/installer-amd64/current/legacy-images/netboot/netboot.tar.gz`
 
 1. `docker-compose up -d`
 

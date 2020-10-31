@@ -6,7 +6,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Download netboot archive
-      run: curl -sSLo dhcp/netboot.tar.gz http://archive.ubuntu.com/ubuntu/dists/bionic-updates/main/installer-amd64/current/images/netboot/netboot.tar.gz
+      run: curl -sSLo dhcp/netboot.tar.gz http://archive.ubuntu.com/ubuntu/dists/focal-updates/main/installer-amd64/current/legacy-images/netboot/netboot.tar.gz
     - name: set none network
       run: |
         cat <<EOF > docker-compose.override.yml
