@@ -5,7 +5,7 @@
 
 - PXE Server: docker-compose on host machine
   - NOTE: Release ports; 53/udp, 67/udp, 69/udp
-- PXE Client: Ubuntu 18.04(bionic) server
+- PXE Client: Ubuntu 20.04(focal) server
 - Support UEFI Secure Boot
 
 ## Usage
