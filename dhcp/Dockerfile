@@ -8,7 +8,7 @@ ARG MY_DNS_SERVER_IP="192.168.0.1"
 
 WORKDIR /srv/tftp
 
-ARG PACKAGES="dnsmasq=2.79-1 wget=1.19.4-1ubuntu2.2 dpkg-dev=1.19.0.5ubuntu2.3"
+ARG PACKAGES="dnsmasq wget dpkg-dev"
 
 RUN set -x && \
         sed -i -e 's/^# deb-src /deb-src /' /etc/apt/sources.list && \
@@ -17,7 +17,7 @@ RUN set -x && \
         wget -qO grubx64.efi http://archive.ubuntu.com/ubuntu/dists/bionic/main/uefi/grub2-amd64/current/grubnetx64.efi.signed && \
         cd /tmp && \
         apt-get source -qq shim-signed && \
-        cp shim-signed-*/shimx64.efi.signed /srv/tftp/bootx64.efi && \
+        cp shim-signed-*/microsoft-shimx64.efi /srv/tftp/bootx64.efi && \
         rm -rf /var/lib/apt/lists/*
 
 COPY preseed.cfg /srv/tftp/preseed.cfg
